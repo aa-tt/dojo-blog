@@ -3,6 +3,8 @@ import BlogList from './BlogList';
 
 const Home = () => {
 
+    const [name, setName] = useState('mario');
+
     const [blogs, setBlogs] = useState([
         { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
         { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
@@ -17,11 +19,14 @@ const Home = () => {
     useEffect(() => {
         console.log('useEffect fetch data, auth, etc..');
         console.log(blogs);
-    }, []); // add dependency array - blank, to have no dependency which means only on first render useEffect will run, otherwise it runs for each render
+        console.log(name);
+    }, [name]); // only on `name` change useEffect runs, not on `blogs` change
 
     return (
         <div className="home">
-            <BlogList blogs={ blogs } title="All Blogs" handleDelete={handleDelete}/>
+            <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
+            <button onClick={() => setName('luigi')}>change name</button>
+            <p>{name}</p>
         </div>
     );
 }
