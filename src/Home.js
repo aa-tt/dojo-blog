@@ -1,9 +1,11 @@
+import { useState } from 'react';
+
 const Home = () => {
-    let name = 'mario';
+    // let name = 'mario';
+    const [name, setName] = useState('mario'); // useState hook function that returns initial value supplied to it (which is mario here) and a callback function to change state of variable 'name' in template
 
     const handleClick = () => {
-        name = 'luigi';
-        console.log(name);
+        setName('luigi');
     }
 
     return (
