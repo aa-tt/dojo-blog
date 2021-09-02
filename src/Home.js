@@ -17,7 +17,7 @@ const Home = () => {
     useEffect(() => {
         console.log('useEffect fetch data, auth, etc..');
         console.log(blogs);
-    });
+    }, []); // add dependency array - blank, to have no dependency which means only on first render useEffect will run, otherwise it runs for each render
 
     return (
         <div className="home">
