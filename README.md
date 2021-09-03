@@ -86,3 +86,5 @@ SPA's
 ![img_7.png](img_7.png)
 SPA will use router
 ![img_8.png](img_8.png)
+
+### `npm i react-router-dom@5`
