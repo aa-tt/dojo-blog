@@ -88,3 +88,9 @@ SPA will use router
 ![img_8.png](img_8.png)
 
 ### `npm i react-router-dom@5`
+
+### React State Update
+index.js:1 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
+at Home
+while data is still being loaded by useFetch and user navigates away to another component, above error is thrown and should be handled by a cleaner useFetch
+![](gif.gif)
