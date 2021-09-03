@@ -8,7 +8,6 @@ const useFetch = (url) => { // pass url to this hook function
     useEffect(() => {
         const abortController = new AbortController();
 
-
         setTimeout(() => { // settimeout to 1 sec, just to simulate a real call on internet
             fetch(url, {signal: abortController.signal}) // this returns a promise, so resolve with `then`
                 .then(res => {
