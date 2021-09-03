@@ -13,8 +13,11 @@ const Home = () => {
 
     useEffect(() => {
         setTimeout(() => { // settimeout to 1 sec, just to simulate a real call on internet
-            fetch('http://localhost:8000/blogs') // this returns a promise, so resolve with `then`
+            fetch('http://localhost:8000/blogss') // this returns a promise, so resolve with `then`
                 .then(res => {
+                    if (!res.ok) {
+                        throw Error(`data not fetched - ${res.status} ${res.statusText}`);
+                    }
                     return res.json(); // this converts json into javascript object and returns a promise, so resolve with `then`
                 })
                 .then((data) => {
