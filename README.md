@@ -75,15 +75,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### React Router
 Normal web applications
-![img.png](img.png)
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
-SPA's
-![img_4.png](img_4.png)
-![img_5.png](img_5.png)
-![img_6.png](img_6.png)
-![img_7.png](img_7.png)
+![](gif_1.gif)
+Single Page Applications SPAs
+![](gif_2.gif)
 SPA will use router
 ![img_8.png](img_8.png)
 
