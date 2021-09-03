@@ -3,13 +3,7 @@ import BlogList from './BlogList';
 
 const Home = () => {
 
-    const [name, setName] = useState('mario');
-
-    const [blogs, setBlogs] = useState([
-        { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
-        { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
-        { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
-    ]);
+    const [blogs, setBlogs] = useState(null);
 
     const handleDelete = (id) => {
         const newBlogs = blogs.filter(blog => blog.id !== id);
@@ -17,16 +11,18 @@ const Home = () => {
     }
 
     useEffect(() => {
-        console.log('useEffect fetch data, auth, etc..');
-        console.log(blogs);
-        console.log(name);
-    }, [name]); // only on `name` change useEffect runs, not on `blogs` change
+        fetch('http://localhost:8000/blogs') // this returns a promise, so resolve with `then`
+            .then(res => {
+                return res.json(); // this converts json into javascript object and returns a promise, so resolve with `then`
+            })
+            .then((data) => {
+                setBlogs(data);
+            })
+    }, []);
 
     return (
         <div className="home">
-            <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
-            <button onClick={() => setName('luigi')}>change name</button>
-            <p>{name}</p>
+            {blogs && <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />}
         </div>
     );
 }
